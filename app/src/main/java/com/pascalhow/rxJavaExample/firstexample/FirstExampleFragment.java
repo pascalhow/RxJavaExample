@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observable;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 
 /**
  * Created by pascal on 26/12/2016.
@@ -53,8 +54,10 @@ public class FirstExampleFragment extends Fragment {
     }
 
     @OnClick(R2.id.first_example_button)
-    public void onMainButtonClick() {
-        sampleObservable().subscribe(sampleSubscriber());
+    public void onFirstExampleButtonClick() {
+        sampleObservable().subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(sampleSubscriber());
     }
 
     public Observable<String> sampleObservable() {
@@ -90,6 +93,7 @@ public class FirstExampleFragment extends Fragment {
             }
         };
     }
+
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.action_settings);
