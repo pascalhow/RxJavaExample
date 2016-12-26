@@ -23,9 +23,6 @@ public class MainActivity extends AppCompatActivity
     private static final String FRAGMENT_FIRST_EXAMPLE = "first_example";
     private static final String FRAGMENT_SECOND_EXAMPLE = "second_example";
 
-
-    FloatingActionButton fab;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +30,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
         setOnBackStackListener();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -78,14 +72,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void showFloatingActionButton() {
-        fab.show();
-    }
-
-    public void hideFloatingActionButton() {
-        fab.hide();
-    }
-
     /**
      * Handles backStackListener when user navigates between fragments
      */
@@ -109,7 +95,6 @@ public class MainActivity extends AppCompatActivity
 
         if (fragClassName.equals(FirstExampleFragment.class.getName())) {
             setTitle(getResources().getString(R.string.first_example_screen_fragment_title));
-            showFloatingActionButton();
         } else if (fragClassName.equals(SecondExampleFragment.class.getName())) {
             setTitle(getResources().getString(R.string.second_example_screen_fragment_title));
         }

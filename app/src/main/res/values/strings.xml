@@ -10,9 +10,11 @@
     <string name="first_example_screen_hello_text">Hello First Example fragment</string>
     <string name="first_example_screen_button_text">Click</string>
     <string name="first_example_screen_content_text">Some random content</string>
+    <string name="first_example_screen_edit_text_hint">Hint</string>
 
     <string name="second_example_screen_fragment_title">Second Example Fragment</string>
     <string name="second_example_screen_hello_text">Hello Second Example fragment</string>
     <string name="second_example_screen_button_text">Click</string>
     <string name="second_example_screen_content_text">Some random content</string>
+    <string name="second_example_screen_edit_text_hint">Hint</string>
 </resources>

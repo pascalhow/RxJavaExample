@@ -31,7 +31,6 @@ public class SecondExampleFragment extends Fragment {
 
         mainActivity = (MainActivity) getActivity();
         mainActivity.setTitle(R.string.second_example_screen_fragment_title);
-        mainActivity.hideFloatingActionButton();
 
         setHasOptionsMenu(true);
 
