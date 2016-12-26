@@ -1,47 +1,59 @@
-package com.pascalhow.navigationdrawerbaseapp.newfragment;
+package com.pascalhow.rxJavaExample.firstexample;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.pascalhow.navigationdrawerbaseapp.MainActivity;
-import com.pascalhow.navigationdrawerbaseapp.R;
+import com.pascalhow.rxJavaExample.MainActivity;
+import com.pascalhow.rxJavaExample.R;
+import com.pascalhow.rxJavaExample.R2;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by pascal on 26/12/2016.
  */
 
-public class NewFragment extends Fragment {
+public class FirstExampleFragment extends Fragment {
+
+    @BindView(R2.id.first_example_text)
+    TextView firstExampleText;
 
     private MainActivity mainActivity;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View rootView = inflater.inflate(R.layout.fragment_new, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_first_example, container, false);
 
         ButterKnife.bind(this, rootView);
 
         mainActivity = (MainActivity) getActivity();
-        mainActivity.setTitle(R.string.new_screen_fragment_title);
-        mainActivity.hideFloatingActionButton();
+        mainActivity.setTitle(R.string.first_example_screen_fragment_title);
+        mainActivity.showFloatingActionButton();
 
         setHasOptionsMenu(true);
 
         return rootView;
     }
 
+    @OnClick(R2.id.first_example_button)
+    public void onMainButtonClick() {
+        firstExampleText.setText(getString(R.string.first_example_screen_content_text));
+    }
+
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.action_settings);
-        item.setVisible(true);
+        item.setVisible(false);
     }
 
     @Override
@@ -57,6 +69,7 @@ public class NewFragment extends Fragment {
         switch (item.getItemId()) {
 
             case R.id.action_settings:
+                //  Save new trip
                 break;
             default:
                 break;

@@ -6,10 +6,16 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/second_example_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/second_example_screen_button_text" />
     <TextView
+        android:id="@+id/second_example_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/new_screen_hello_text"
+        android:text="@string/second_example_screen_hello_text"
         android:textAppearance="?android:textAppearanceMedium"
-        android:textSize="@dimen/new_screen_title_text_size" />
+        android:textSize="@dimen/second_example_screen_title_text_size" />
 </LinearLayout>

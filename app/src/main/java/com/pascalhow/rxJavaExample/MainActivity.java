@@ -1,4 +1,4 @@
-package com.pascalhow.navigationdrawerbaseapp;
+package com.pascalhow.rxJavaExample;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,14 +14,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.pascalhow.navigationdrawerbaseapp.mainfragment.MainFragment;
-import com.pascalhow.navigationdrawerbaseapp.newfragment.NewFragment;
+import com.pascalhow.rxJavaExample.firstexample.FirstExampleFragment;
+import com.pascalhow.rxJavaExample.secondexample.SecondExampleFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String FRAGMENT_MAIN = "main";
-    private static final String FRAGMENT_NEW = "new";
+    private static final String FRAGMENT_FIRST_EXAMPLE = "first_example";
+    private static final String FRAGMENT_SECOND_EXAMPLE = "second_example";
 
 
     FloatingActionButton fab;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        loadFragment(new MainFragment(), FRAGMENT_MAIN);
+        loadFragment(new FirstExampleFragment(), FRAGMENT_FIRST_EXAMPLE);
     }
 
     /**
@@ -62,16 +62,16 @@ public class MainActivity extends AppCompatActivity
         switch (tag) {
 
             //  Main fragment is the first fragment to be displayed so we don't addToBackStack()
-            case FRAGMENT_MAIN:
+            case FRAGMENT_FIRST_EXAMPLE:
                 fragmentManager.beginTransaction()
                         .replace(R.id.base_fragment, fragment, tag)
                         .commit();
                 break;
 
-            case FRAGMENT_NEW:
+            case FRAGMENT_SECOND_EXAMPLE:
                 fragmentManager.beginTransaction()
                         .add(R.id.base_fragment, fragment, tag)
-                        .addToBackStack(FRAGMENT_NEW)
+                        .addToBackStack(FRAGMENT_SECOND_EXAMPLE)
                         .commitAllowingStateLoss();
             default:
                 break;
@@ -107,11 +107,11 @@ public class MainActivity extends AppCompatActivity
     private void updateFragmentTitle(Fragment fragment) {
         String fragClassName = fragment.getClass().getName();
 
-        if (fragClassName.equals(MainFragment.class.getName())) {
-            setTitle(getResources().getString(R.string.main_screen_fragment_title));
+        if (fragClassName.equals(FirstExampleFragment.class.getName())) {
+            setTitle(getResources().getString(R.string.first_example_screen_fragment_title));
             showFloatingActionButton();
-        } else if (fragClassName.equals(NewFragment.class.getName())) {
-            setTitle(getResources().getString(R.string.new_screen_fragment_title));
+        } else if (fragClassName.equals(SecondExampleFragment.class.getName())) {
+            setTitle(getResources().getString(R.string.second_example_screen_fragment_title));
         }
     }
 
@@ -154,9 +154,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            loadFragment(new MainFragment(), FRAGMENT_MAIN);
+            loadFragment(new FirstExampleFragment(), FRAGMENT_FIRST_EXAMPLE);
         } else if (id == R.id.nav_gallery) {
-            loadFragment(new NewFragment(), FRAGMENT_NEW);
+            loadFragment(new SecondExampleFragment(), FRAGMENT_SECOND_EXAMPLE);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

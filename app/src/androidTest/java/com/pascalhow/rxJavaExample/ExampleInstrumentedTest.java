@@ -1,4 +1,4 @@
-package com.pascalhow.navigationdrawerbaseapp;
+package com.pascalhow.rxJavaExample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
